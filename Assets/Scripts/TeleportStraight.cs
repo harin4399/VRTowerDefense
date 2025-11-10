@@ -22,17 +22,17 @@ public class TeleportStraight : MonoBehaviour
     void Update()
     {
         // 왼쪽 컨트롤러의 [One] 버튼을 누르면
-        if (ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
+        if (ARAVRInput.GetDown(ARAVRInput.Button.HandTrigger, ARAVRInput.Controller.RTouch))
         {
             // 라인 렌더러 컴포넌트 활성화
             lr.enabled = true;
         }
 
         // 왼쪽 컨트롤러의 [One] 버튼에서 손을 떼면
-        else if (ARAVRInput.GetUp(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
+        else if (ARAVRInput.GetUp(ARAVRInput.Button.HandTrigger, ARAVRInput.Controller.RTouch))
         {
             // 라인 렌더러 컴포넌트 비활성화
-            lr.enabled = false;
+            //lr.enabled = false;
 
             if (teleportCircleUI.gameObject.activeSelf)
             {
@@ -41,17 +41,17 @@ public class TeleportStraight : MonoBehaviour
                 transform.position = teleportCircleUI.position + Vector3.up;
                 GetComponent<CharacterController>().enabled = true;
             }
-            
+
             // 텔레포트 UI 비활성화
             teleportCircleUI.gameObject.SetActive(false);
         }
 
         // 왼쪽 컨트롤러의 [One] 버튼을 누르고 있을 때
-        else if (ARAVRInput.Get(ARAVRInput.Button.One, ARAVRInput.Controller.LTouch))
+        else if (ARAVRInput.Get(ARAVRInput.Button.HandTrigger, ARAVRInput.Controller.RTouch))
         {
             // 텔레포트 UI 그리기
             // 1. 왼쪽 컨트롤러를 기준으로 Ray를 만든다.
-            Ray ray = new Ray(ARAVRInput.LHandPosition, ARAVRInput.LHandDirection);
+            Ray ray = new Ray(ARAVRInput.RHandPosition, ARAVRInput.RHandDirection);
             RaycastHit hitInfo;
             int layer = 1 << LayerMask.NameToLayer("Terrain");
 
@@ -76,7 +76,7 @@ public class TeleportStraight : MonoBehaviour
             {
                 // Ray 충돌이 발생하지 않으면 선이 Ray 방향으로 그려지도록 처리
                 lr.SetPosition(0, ray.origin);
-                lr.SetPosition(1, ray.origin + ARAVRInput.LHandDirection * 200);
+                lr.SetPosition(1, ray.origin + ARAVRInput.RHandDirection * 200);
                 // 텔레포트 UI는 화면에서 비활성화
                 teleportCircleUI.gameObject.SetActive(false);
             }

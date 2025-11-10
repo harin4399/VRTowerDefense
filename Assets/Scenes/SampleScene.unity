@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 736111083}
   - component: {fileID: 736111086}
   - component: {fileID: 736111085}
+  - component: {fileID: 736111087}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -643,7 +644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736111080}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f71e8ca571480c49ad0b1defcb19bef, type: 3}
   m_Name: 
@@ -762,6 +763,23 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &736111087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736111080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce04d35a5d703614597eb047e260e86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportCircleUI: {fileID: 1477703727}
+  lineSmooth: 40
+  curveLength: 50
+  gravity: -60
+  simulateTime: 0.02
 --- !u!1001 &827318310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -934,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1289ca784b0bd647a116cc53b238460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 200
+  sensitivity: 500
 --- !u!4 &1049734432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1217044591354123235, guid: 644d3a46a4e504e4d9f9e3cadf29ca19, type: 3}
