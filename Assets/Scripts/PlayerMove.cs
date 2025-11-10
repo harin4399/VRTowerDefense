@@ -29,6 +29,9 @@ public class PlayerMove : MonoBehaviour
         // 2. 방향을 만든다.
         Vector3 dir = new Vector3(h, 0, v);
 
+        // 2-0. 사용자가 바라보는 방향으로 입력 값 변화시키기
+        dir = Camera.main.transform.TransformDirection(dir);
+
         // 2-1. 중력을 적용한 수직 방향 추가 v = v0 + at
         // F = m(무게) * a(가속도)
         // 가속도 = 속도 * 시간
